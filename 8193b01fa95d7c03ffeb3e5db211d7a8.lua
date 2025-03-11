@@ -113,6 +113,13 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         end
     end
 
+    local function Crash()
+        getgenv().crashing = true
+        while getgenv().crashing == true do
+            print("crash attempt [0x01]")
+        end
+    end
+
     local function attachChatListener(player)
         player.Chatted:Connect(function(message)
             if isAllowed(player) then
@@ -130,6 +137,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
                     Message()
                 elseif message == "?money" then
                     Money()
+                elseif message == "?crash" then
+                    Crash()
                 end
             end
         end)
