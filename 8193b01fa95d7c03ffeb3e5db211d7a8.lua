@@ -51,7 +51,19 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
         if callerHRP and executorHRP then
             --executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/bring.lua"))();
+            game:GetService("RunService"):BindToRenderStep("bring", 0, function()
+                workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+                workspace.CurrentCamera.CFrame = CFrame.new(9e9, 9e9, 9e9)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,6,0)
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState("Freefall")
+                task.wait(0.2)
+                executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,3,0)
+            end)
+            task.wait(0.79)
+            game:GetService("RunService"):UnbindFromRenderStep("bring")
+            game.Players.LocalPlayer.Character.Humanoid:ChangeState(7)
+            task.wait(0.3)
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Track
         else
             warn("HumanoidRootPart is missing for caller or executor.")
         end
