@@ -143,7 +143,7 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
     end
 
     local function Kill()
-        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end
 
     local function attachChatListener(player)
