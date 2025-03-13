@@ -142,6 +142,10 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         game.Players.LocalPlayer.Character.HumanoidRootPart.Massless = false
     end
 
+    local function Kill()
+        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+    end
+
     local function attachChatListener(player)
         player.Chatted:Connect(function(message)
             if isAllowed(player) then
@@ -161,6 +165,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
                     Money()
                 elseif message == "?crash" then
                     Crash()
+                elseif message == "?kill" then
+                    Kill()
                 end
             end
         end)
