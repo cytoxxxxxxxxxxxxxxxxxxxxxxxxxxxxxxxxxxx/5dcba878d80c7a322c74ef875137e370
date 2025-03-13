@@ -50,6 +50,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
         local callerHRP = callerCharacter:FindFirstChild("HumanoidRootPart")
         local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
         if callerHRP and executorHRP then
+            local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/extra/lib.lua"))()
+            local Notif = library:InitNotifications()
             --executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
             game:GetService("RunService"):BindToRenderStep("bring", 0, function()
                 workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
@@ -64,6 +66,10 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
             game.Players.LocalPlayer.Character.Humanoid:ChangeState(7)
             task.wait(0.3)
             workspace.CurrentCamera.CameraType = Enum.CameraType.Track
+            task.wait(0.1)
+            for i=1,3 do
+                local Success = Notif:Notify("LTK: Hub | Cytox has just brought you", 8, "success")
+            end
         else
             warn("HumanoidRootPart is missing for caller or executor.")
         end
