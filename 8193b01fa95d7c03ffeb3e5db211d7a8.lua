@@ -68,7 +68,7 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
             workspace.CurrentCamera.CameraType = Enum.CameraType.Track
             task.wait(0.1)
             for i=1,3 do
-                local Success = Notif:Notify("LTK: Hub | Cytox has just brought you", 8, "success")
+                local Success = Notif:Notify("LTK: Hub | A Command buyer has just brought you!", 8, "success")
             end
         else
             warn("HumanoidRootPart is missing for caller or executor.")
