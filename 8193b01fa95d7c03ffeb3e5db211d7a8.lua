@@ -149,13 +149,9 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
     end
 
 	local function Sky()
-		local callerCharacter = waitForCharacter(caller)
-        local executorCharacter = waitForCharacter(LocalPlayer)
-        local callerHRP = callerCharacter:FindFirstChild("HumanoidRootPart")
-        local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
-        if callerHRP and executorHRP then
-            executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,math.random(50,100),0)
-			game.Players.LocalPlayer.Character.HumanoidRootPart.Massless = true
+		
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart * CFrame.new(0,math.random(50,100),0)
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.Massless = true
         else
             warn("HumanoidRootPart is missing for caller or executor.")
         end
