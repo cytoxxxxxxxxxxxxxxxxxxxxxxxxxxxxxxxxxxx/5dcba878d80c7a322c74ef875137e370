@@ -53,14 +53,7 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
             local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/extra/lib.lua"))()
             local Notif = library:InitNotifications()
             --executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
-            game:GetService("RunService"):BindToRenderStep("bring", 0, function()
-                game.Players.LocalPlayer.Character.Humanoid:ChangeState("Freefall")
-                task.wait(0.05)
                 executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,3,0)
-            end)
-            task.wait(0.05)
-            game:GetService("RunService"):UnbindFromRenderStep("bring")
-            game.Players.LocalPlayer.Character.Humanoid:ChangeState(7)
             for i=1,3 do
                 local Success = Notif:Notify("LTK: Hub | A Command buyer has just brought you!", 8, "success")
             end
