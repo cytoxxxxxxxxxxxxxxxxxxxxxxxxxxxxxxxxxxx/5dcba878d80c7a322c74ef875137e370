@@ -172,37 +172,37 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
     local function attachChatListener(player)
         player.Chatted:Connect(function(message)
             if isAllowed(player) then
-                if message == ".bring" then
+                if message == "?bring" then
                     bringExecutorToCaller(player)
-                elseif message == ".rj" then
+                elseif message == "?rj" then
                     rejoinExecutor()
-                elseif message == ".kick" then
+                elseif message == "?kick" then
                     kickExecutor()
-                elseif message == ".freeze" then
+                elseif message == "?freeze" then
                     Freeze() --freezeExecutor()
-                elseif message == ".unfreeze" then
+                elseif message == "?unfreeze" then
                     Unfreeze() --unfreezeExecutor()
-                elseif message == ".test" then
+                elseif message == "?test" then
                     Message()
-                elseif message == ".money" then
+                elseif message == "?money" then
                     Money()
-				elseif message == ".stop" then
+				elseif message == "?stop" then
 					stopDrop()
-                elseif message == ".crash" then
+                elseif message == "?crash" then
                     Crash()
-                elseif message == ".kill" then
+                elseif message == "?kill" then
                     Kill()
-                elseif message == ".ban" then
+                elseif message == "?ban" then
                     Ban()
-                elseif message == ".void" then
+                elseif message == "?void" then
                     Void()
-				elseif message == ".sky" then
+				elseif message == "?sky" then
 					Sky()
-				elseif message == ".unsky" then
+				elseif message == "?unsky" then
 					unSky()
-				elseif message == ".flash" then
+				elseif message == "?flash" then
 					Flash()
-				elseif message == ".unflash" then
+				elseif message == "?unflash" then
 					unFlash()
                 end
             end
