@@ -50,13 +50,8 @@ local url = "https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/a6h
          local callerHRP = callerCharacter:FindFirstChild("HumanoidRootPart")
          local executorHRP = executorCharacter:FindFirstChild("HumanoidRootPart")
          if callerHRP and executorHRP then
-             local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/15rih/LTK-New/refs/heads/main/extra/lib.lua"))()
-             local Notif = library:InitNotifications()
              --executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,55,0)
             executorHRP.CFrame = callerHRP.CFrame * CFrame.new(0,1.2,0)
-            for i=1,3 do
-                 local Success = Notif:Notify("LTK: Hub | a command user has just brought you!", 8, "success")
-             end
          else
              warn("HumanoidRootPart is missing for caller or executor.")
          end
